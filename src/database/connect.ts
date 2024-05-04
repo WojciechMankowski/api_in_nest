@@ -1,8 +1,8 @@
 import { createClient } from '@supabase/supabase-js';
-import Comment from './Types/comment';
-import Place from './Types/place';
-import Rating from './Types/rating';
-import PlaceAdd from './Types/PlaceAdd';
+import Comment from '../Types/comment';
+import Place from '../Types/place';
+import Rating from '../Types/rating';
+
 
 // tabele: comment, opttionchoices, place, rating
 // const supabase = createClient(
@@ -51,7 +51,7 @@ class Database {
     }
     return data;
   }
-  async addNewPlace(new_data: PlaceAdd) {
+  async addNewPlace(new_data: Place) {
     const { data, error } = await this.supabase
       .from('place')
       .insert(new_data)
