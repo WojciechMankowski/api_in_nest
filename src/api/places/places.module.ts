@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
-import { PlaceController } from './place.controller';
-import { PlaceService } from './place.service';
+import { PlaceController } from './places.controller';
+import { PlaceService } from './places.service';
+
 
 @Module({
   controllers: [PlaceController],
@@ -17,4 +18,4 @@ import { PlaceService } from './place.service';
   ],
   exports: [PlaceService],
 })
-export default class PlaceModule {}
+export default class PlacesModule {}

@@ -1,7 +1,8 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
-import { PlaceService } from './place.service';
-import PlaceAdd from 'src/database/Types/PlaceAdd';
+
+import Place from 'src/Types/place';
 import { ApiTags } from '@nestjs/swagger';
+import { PlaceService } from './places.service';
 
 @ApiTags('places')
 @Controller('places')
@@ -13,7 +14,7 @@ export  class PlaceController {
         return this.placeService.getPlace()
     }
     @Post()
-    addNewPlace(@Body() body: PlaceAdd){
+    addNewPlace(@Body() body: Place){
         return this.placeService.addNewPlace(body)
     }
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import PlaceAdd from 'src/database/Types/PlaceAdd';
+import Place from 'src/Types/place';
 import Database from 'src/database/connect';
 
 @Injectable()
@@ -13,7 +13,7 @@ export class PlaceService {
   getPlace(){
     return this.db.getPlace()
   }
-  addNewPlace(data: PlaceAdd) {
+  addNewPlace(data: Place) {
     return this.db.addNewPlace(data)
   }
 }
