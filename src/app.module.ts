@@ -1,12 +1,16 @@
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { ApiModule } from './api/api.module';
-import { AppService } from './app.service';
-import { LoggerMiddleware } from './common/logger/logger.middleware';
+import { LoggerMiddleware } from './auth/logger.middleware';
+
+
 
 @Module({
-  imports: [ApiModule],
+  imports: [
+    ApiModule,
+   
+  ],
   controllers: [],
-  providers: [AppService],
+  providers: [],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {

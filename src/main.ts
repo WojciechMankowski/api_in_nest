@@ -3,12 +3,14 @@ import { AppModule } from './app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { ValidationPipe } from '@nestjs/common';
 import * as dotenv from 'dotenv'
+import { AuthGuard } from './auth/auth.guard';
 
 dotenv.config()
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-
+  // ustawienie guard
+  app.useGlobalGuards(new AuthGuard())
   //  ustawienie wyświetlania swagger
   const options = new DocumentBuilder()
     .setTitle('API dostępny świat dla wysztkich')

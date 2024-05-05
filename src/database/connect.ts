@@ -2,6 +2,7 @@ import { createClient } from '@supabase/supabase-js';
 import Comment from '../Types/comment';
 import Place from '../Types/place';
 import Rating from '../Types/rating';
+import { User } from 'src/Types/user';
 
 
 // tabele: comment, opttionchoices, place, rating
@@ -79,6 +80,28 @@ class Database {
   return data;
 
   }
+  async createUser(new_data: User) {
+    const { data, error } = await this.supabase
+      .from('users')
+      .insert(new_data)
+      .select();
+    if (error) {
+      return null;
+    }
+    return data;
+  }
+
+  async getUser(email: string | null, username: string) {
+    const { data, error } = await this.supabase
+      .from('users')
+      .select()
+      .eq('email', email, "username", username);
+
+    if (error) {
+      return null;
+    }
+    return data;}
+
 }
 
 export default Database;
