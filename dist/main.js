@@ -24,6 +24,7 @@ async function bootstrap() {
         exposedHeaders: ['Authorization'],
         credentials: true,
     });
+    const http = require('http');
     await app.listen(process.env.PORT || 3000);
 }
 bootstrap();

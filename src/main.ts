@@ -30,7 +30,7 @@ async function bootstrap() {
   exposedHeaders: ['Authorization'],
   credentials: true, // Enable credentials (cookies, authorization headers) cross-origi
   });
-
+  const http = require('http');
   await app.listen(process.env.PORT || 3000);
 }
 bootstrap();
