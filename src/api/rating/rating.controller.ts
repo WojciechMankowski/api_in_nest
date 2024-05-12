@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Patch } from '@nestjs/common';
+import { Body, Controller, Get, Param, Patch, Put } from '@nestjs/common';
 import { RatingService } from './rating.service';
 import { ApiTags } from '@nestjs/swagger';
 
@@ -12,7 +12,7 @@ export  class RatingController {
         return this.ratingService.getRating()
     }
 
-    @Patch('/all/:id')
+    @Put(':id')
     updateData(@Param('id') id: string, @Body() body: {score: string | number}){
         return this.ratingService.update(+body.score, +id)
     }

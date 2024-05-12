@@ -5,11 +5,6 @@ import Rating from '../Types/rating';
 import { User } from 'src/Types/user';
 
 
-// tabele: comment, opttionchoices, place, rating
-// const supabase = createClient(
-//     'https://nyyvpojadixruopwdksr.supabase.co',
-//     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im55eXZwb2phZGl4cnVvcHdka3NyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTQ2Mjg4MDAsImV4cCI6MjAzMDIwNDgwMH0.v3WcTH8xHqT6hBazE_lqH1ZlZFaLhUluMapIS0N_ai0')
-
 class Database {
   private supabase;
   constructor(url: string, apiKey: string) {
@@ -101,7 +96,16 @@ class Database {
       return null;
     }
     return data;}
-
+  async addComment(new_data: Comment){
+    const { data, error } = await this.supabase
+    .from('comment')
+    .insert(new_data)
+    .select();
+  if (error) {
+    return null;
+  }
+  return data
+  }
 }
 
 export default Database;

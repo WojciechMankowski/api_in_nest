@@ -10,12 +10,13 @@ exports.ApiModule = void 0;
 const common_1 = require("@nestjs/common");
 const rating_module_1 = require("./rating/rating.module");
 const places_module_1 = require("./places/places.module");
+const comments_module_1 = require("./comments/comments.module");
 let ApiModule = class ApiModule {
 };
 exports.ApiModule = ApiModule;
 exports.ApiModule = ApiModule = __decorate([
     (0, common_1.Module)({
-        imports: [places_module_1.default, rating_module_1.RatingModule],
+        imports: [places_module_1.default, rating_module_1.RatingModule, comments_module_1.CommentsModule],
         controllers: [],
         providers: [],
     })

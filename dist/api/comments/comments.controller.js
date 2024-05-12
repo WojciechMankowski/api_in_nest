@@ -12,40 +12,40 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.RatingController = void 0;
+exports.CommentsController = void 0;
 const common_1 = require("@nestjs/common");
-const rating_service_1 = require("./rating.service");
+const comments_service_1 = require("./comments.service");
 const swagger_1 = require("@nestjs/swagger");
-let RatingController = class RatingController {
-    ratingService;
-    constructor(ratingService) {
-        this.ratingService = ratingService;
+const comment_1 = require("../../Types/comment");
+let CommentsController = class CommentsController {
+    commentService;
+    constructor(commentService) {
+        this.commentService = commentService;
     }
-    getRating() {
-        return this.ratingService.getRating();
+    get_comments() {
+        return this.commentService.getComments();
     }
-    updateData(id, body) {
-        return this.ratingService.update(+body.score, +id);
+    add_comment(body) {
+        return this.commentService.addComments(body);
     }
 };
-exports.RatingController = RatingController;
+exports.CommentsController = CommentsController;
 __decorate([
-    (0, common_1.Get)(""),
+    (0, common_1.Get)(''),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
-], RatingController.prototype, "getRating", null);
+], CommentsController.prototype, "get_comments", null);
 __decorate([
-    (0, common_1.Put)(':id'),
-    __param(0, (0, common_1.Param)('id')),
-    __param(1, (0, common_1.Body)()),
+    (0, common_1.Post)(),
+    __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, Object]),
+    __metadata("design:paramtypes", [comment_1.default]),
     __metadata("design:returntype", void 0)
-], RatingController.prototype, "updateData", null);
-exports.RatingController = RatingController = __decorate([
-    (0, swagger_1.ApiTags)('rating'),
-    (0, common_1.Controller)('api/rating'),
-    __metadata("design:paramtypes", [rating_service_1.RatingService])
-], RatingController);
-//# sourceMappingURL=rating.controller.js.map
+], CommentsController.prototype, "add_comment", null);
+exports.CommentsController = CommentsController = __decorate([
+    (0, swagger_1.ApiTags)("comment"),
+    (0, common_1.Controller)('api/comments'),
+    __metadata("design:paramtypes", [comments_service_1.CommentsService])
+], CommentsController);
+//# sourceMappingURL=comments.controller.js.map

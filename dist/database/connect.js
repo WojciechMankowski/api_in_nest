@@ -86,6 +86,16 @@ class Database {
         }
         return data;
     }
+    async addComment(new_data) {
+        const { data, error } = await this.supabase
+            .from('comment')
+            .insert(new_data)
+            .select();
+        if (error) {
+            return null;
+        }
+        return data;
+    }
 }
 exports.default = Database;
 //# sourceMappingURL=connect.js.map

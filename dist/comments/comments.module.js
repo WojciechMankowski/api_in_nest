@@ -6,22 +6,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AuthGuard = void 0;
+exports.CommentsModule = void 0;
 const common_1 = require("@nestjs/common");
-let AuthGuard = class AuthGuard {
-    canActivate(context) {
-        const request = context.switchToHttp().getRequest();
-        const apiKey = request.header('x-api-key');
-        // console.log(`API Key from request: ${apiKey}`);
-        // console.log(`Expected API Key: ${process.env.SECRET_KEY}`);
-        if (apiKey !== process.env.SECRET_KEY) {
-            return false;
-        }
-        return true;
-    }
+let CommentsModule = class CommentsModule {
 };
-exports.AuthGuard = AuthGuard;
-exports.AuthGuard = AuthGuard = __decorate([
-    (0, common_1.Injectable)()
-], AuthGuard);
-//# sourceMappingURL=auth.guard.js.map
+exports.CommentsModule = CommentsModule;
+exports.CommentsModule = CommentsModule = __decorate([
+    (0, common_1.Module)({})
+], CommentsModule);
+//# sourceMappingURL=comments.module.js.map
